@@ -123,7 +123,7 @@ def create_reg_add(data):
             result += filetype + "\\shell\\pyWin-" + command["regname"]
             result += "\\command]\r\n"
             result += "@=\"cmd /c " + configLoc.replace("\\", "\\\\")
-            result += "\\\\comStore\\\\" + str(command["id"]) + ".bat %1\"\r\n"
+            result += "\\\\comStore\\\\" + str(command["id"]) + '.bat \\"%1\\""\r\n'
             if "icon_path" in command and command["icon_path"] is not None:
                 create_icon(command["icon_path"], command["id"])
                 result += "\"Icon\"=\"" + configLoc.replace("\\", "\\\\")
@@ -390,8 +390,7 @@ def direct_sub(filetype, data, key, outData):
 
 
 def main():
-    file = open(
-        "C:\\Users\\Dillon\\AppData\\Roaming\\pyWinContext\\config.json", 'r')
+    file = open(configLoc + "\\config.json", 'r')
     data = json.loads(file.read(), object_pairs_hook=OrderedDict)
     file.close()
     reg_save(data, data)
