@@ -1,4 +1,4 @@
-name: Build binary
+name: Test build on (all?) commits
 
 on: push
 
