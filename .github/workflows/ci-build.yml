@@ -1,9 +1,6 @@
-name: Build binary
+name: Test build on (all?) commits
 
-on:
-  push:
-    tags:
-      - 'v*.*.*'
+on: push
 
 jobs:
   build:
@@ -21,9 +18,3 @@ jobs:
       - name: Compile
         run: |
           pyinstaller --noconsole --onefile uac_wrapper.spec
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: dist/pyWinContext.exe
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
