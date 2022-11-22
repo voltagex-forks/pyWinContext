@@ -1,7 +1,7 @@
 altgraph==0.17.2
 future==0.18.2
 pefile==2021.9.3
-Pillow==8.4.0
+Pillow==9.3.0
 PyInstaller==4.7
 PyQt5==5.15.6
 PyQt5-sip==12.*
